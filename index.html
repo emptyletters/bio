@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>emptyletters</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div id="snow"></div>
+
+<div class="background"></div>
+
+<div class="card">
+
+    <img src="avatar.png" class="avatar">
+
+    <h1>emptyletters</h1>
+
+    <p class="bio">
+        lostinyesterday 
+    </p>
+
+    <div class="status-wrapper" style="display: flex; align-items: center; justify-content: center; gap: 8px; margin: 15px 0 25px;">
+        <span id="statusDot"></span>
+        
+        <span id="discordStatus" style="display: none;">Offline</span>
+
+        <div id="customStatusContainer" style="display: flex; align-items: center; gap: 6px; color: #b5b6b8; font-size: 15px; font-family: 'Inter', sans-serif;">
+            <span id="customEmoji"></span>
+            <span id="customText">Offline</span>
+        </div>
+    </div>
+
+    <button id="musicButton" class="music-btn">
+        ▶ Play: i just wanted to be yours - bunii
+    </button>
+
+    <div class="links">
+        <a href="https://discord.gg/GzsGXpSXZ4" target="_blank">My Discord</a>
+        <a href="https://www.roblox.com/users/7496386584/profile" target="_blank">My Roblox</a>
+        <a href="https://www.youtube.com/@zrpyx" target="_blank">My Youtube (i have no videos yet)</a>
+    </div>
+
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script src="script.js"></script>
+</body>
+</html>
