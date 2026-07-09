@@ -131,3 +131,30 @@ function createSnowflake() {
 }
 
 setInterval(createSnowflake, 100);
+
+
+// --- Visitor Counter Logic (CountAPI) ---
+async function updateVisitCount() {
+    const countEl = document.getElementById('visitCount');
+    if (!countEl) return;
+
+    // Change "emptyletters_biolink" to any unique name you want for your site's namespace key.
+    const namespace = "emptyletters_biolink"; 
+    const key = "visits";
+
+    try {
+        const response = await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
+        const data = await response.json();
+        if (data && data.value) {
+            countEl.textContent = data.value.toLocaleString();
+        } else {
+            countEl.textContent = "1";
+        }
+    } catch (error) {
+        // Fallback display if the external count API is having downtime
+        countEl.textContent = "1";
+    }
+}
+
+// Fire the counter tracking on page load
+updateVisitCount();

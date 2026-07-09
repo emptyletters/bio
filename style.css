@@ -144,3 +144,34 @@ h1{
         transform: translate(-50%, -50%);
     }
 }
+
+/* --- View Counter Styling --- */
+.view-counter {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Slightly more space for the larger icon */
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px; /* Increased slightly to match the larger icon */
+    font-weight: 600;
+    z-index: 10000;
+    user-select: none;
+    text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
+}
+
+.view-counter .eye-icon {
+    width: 24px;   /* Increased from 18px */
+    height: 24px;  /* Increased from 18px */
+    fill: white;
+    filter: drop-shadow(-1px -1px 0 #000) 
+            drop-shadow(1px -1px 0 #000) 
+            drop-shadow(-1px 1px 0 #000) 
+            drop-shadow(1px 1px 0 #000);
+}
