@@ -133,25 +133,27 @@ function createSnowflake() {
 setInterval(createSnowflake, 100);
 
 
-// --- Visitor Counter Logic (CountAPI) ---
+// --- Visitor Counter Logic (CounterAPI) ---
 async function updateVisitCount() {
     const countEl = document.getElementById('visitCount');
     if (!countEl) return;
 
-    // Change "emptyletters_biolink" to any unique name you want for your site's namespace key.
+    // A unique namespace name for your link page
     const namespace = "emptyletters_biolink"; 
     const key = "visits";
 
     try {
-        const response = await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
+        // Fetching from a live, active counter API service
+        const response = await fetch(`https://api.counterapi.dev/v1/${namespace}/${key}/up`);
         const data = await response.json();
-        if (data && data.value) {
-            countEl.textContent = data.value.toLocaleString();
+        
+        if (data && data.count) {
+            countEl.textContent = data.count.toLocaleString();
         } else {
             countEl.textContent = "1";
         }
     } catch (error) {
-        // Fallback display if the external count API is having downtime
+        console.error("Counter error:", error);
         countEl.textContent = "1";
     }
 }
