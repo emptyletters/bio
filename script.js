@@ -133,30 +133,26 @@ function createSnowflake() {
 setInterval(createSnowflake, 100);
 
 
-// --- Visitor Counter Logic (CounterAPI) ---
 async function updateVisitCount() {
     const countEl = document.getElementById('visitCount');
     if (!countEl) return;
 
-    // A unique namespace name for your link page
-    const namespace = "emptyletters_biolink"; 
-    const key = "visits";
+    const workspace = "emptyletters-bio-stats"; 
+    const name = "page-views";
 
     try {
-        // Fetching from a live, active counter API service
-        const response = await fetch(`https://api.counterapi.dev/v1/${namespace}/${key}/up`);
-        const data = await response.json();
+        const response = await fetch(`https://api.counterapi.dev/v2/${workspace}/${name}/up`);
+        const json = await response.json();
         
-        if (data && data.count) {
-            countEl.textContent = data.count.toLocaleString();
+        if (json && json.data && typeof json.data.up_count !== 'undefined') {
+            countEl.textContent = json.data.up_count.toLocaleString();
         } else {
             countEl.textContent = "1";
         }
     } catch (error) {
-        console.error("Counter error:", error);
+        console.error("Counter failed:", error);
         countEl.textContent = "1";
     }
 }
 
-// Fire the counter tracking on page load
 updateVisitCount();
